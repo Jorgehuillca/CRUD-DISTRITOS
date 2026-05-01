@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestión de Distritos</title>
+  <link rel="stylesheet" href="/src/style.css" />
+</head>
+<body>
+
+  <div class="container">
+    <header class="page-header">
+      <h1>📋 Gestión de Distritos</h1>
+      <a href="/nuevo.html" class="btn btn-primary">+ Nuevo Distrito</a>
+    </header>
+
+    <!-- Buscador multicriterio -->
+    <div class="toolbar">
+      <input
+        type="text"
+        id="inputBusqueda"
+        class="input-search"
+        placeholder="Buscar por ID, Nombre o Código Postal..."
+        autocomplete="off"
+      />
+    </div>
+
+    <!-- Tabla principal -->
+    <div class="table-wrapper">
+      <table id="tablaDistritos">
+        <thead>
+          <tr>
+            <th>ID</th>
+              <th>Nombre del Distrito</th>
+              <th>Código Postal</th>
+              <th>Población</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="tbodyDistritos">
+          <tr><td colspan="4" class="loading">Cargando datos...</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Paginación -->
+    <div class="pagination" id="paginacion"></div>
+  </div>
+
+  <!-- Modal de Edición -->
+  <div id="modalEditar" class="modal-overlay hidden">
+    <div class="modal">
+      <h2>✏️ Editar Distrito</h2>
+      <input type="hidden" id="editId" />
+      <div class="form-group">
+        <label for="editNombre">Nombre del Distrito</label>
+        <input type="text" id="editNombre" placeholder="Ej: Miraflores" />
+      </div>
+      <div class="form-group">
+        <label for="editCodPostal">Código Postal</label>
+        <input type="text" id="editCodPostal" placeholder="Ej: 15074" />
+      </div>
+      <div class="form-group">
+        <label for="editPoblacion">Población</label>
+        <input type="number" id="editPoblacion" placeholder="Ej: 99337" min="0" />
+      </div>
+      <div class="modal-actions">
+        <button id="btnGuardarEdicion" class="btn btn-primary">Guardar</button>
+        <button id="btnCancelarEdicion" class="btn btn-secondary">Cancelar</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/index.js"></script>
+</body>
+</html>
